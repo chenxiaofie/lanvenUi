@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "strict": true,
+    "target": "esnext",
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "lib": ["esnext", "dom"],
+    "forceConsistentCasingInFileNames": true,
+    "strictFunctionTypes": false,
+    "typeRoots": ["index.d.ts"]
+  },
+  "include": ["index.d.ts"]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@lanvenUi/utils",
+  "version": "1.0.0",
+  "main": "./index.ts",
+  "module": "./index.ts",
+  "description": "",
+  "keywords": [],
+  "files": [
+    "dist"
+  ],
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.10",
+    "socket.io-client": "^4.6.0"
+  }
+}

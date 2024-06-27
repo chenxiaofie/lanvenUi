@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "noLib": false,
+    "isolatedModules": true,
+    "preserveSymlinks": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictFunctionTypes": false,
+    "jsx": "preserve",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "rootDirs": ["./", "./packages/components"],
+    "declaration": true,
+    "declarationDir": "lanvenUi",
+    "paths": {
+      "@/*": ["packages/components/*"],
+      "#/*": ["packages/components/types/*"],
+      "ant-design-vue/lib/grid/Row": ["node_modules/ant-design-vue/lib/grid/Row"],
+      "ant-design-vue/lib/form/interface": ["node_modules/ant-design-vue/lib/form/interface"],
+      "ant-design-vue/es/button/buttonTypes": ["node_modules/ant-design-vue/es/button/buttonTypes"],
+      "typescript/es/lib.dom": ["node_modules/typescript/es/lib.dom"],
+      "@purge-icons/generated": ["node_modules/@purge-icons/generated"],
+      "vue-types": ["node_modules/vue-types/dist"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "**/*.js"]
+}
