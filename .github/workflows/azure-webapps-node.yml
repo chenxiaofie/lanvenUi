@@ -44,6 +44,7 @@ jobs:
 
     - name: npm install, build, and test
       run: |
+        cd ./site
         npm install
         npm run docs:build --if-present
         # npm run test --if-present
