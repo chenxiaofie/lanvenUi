@@ -5,7 +5,7 @@
 - 💪 基于 vue3 和 ant design vue 的组件库
 - 🔥 Written in TypeScript
 
-[![github](https://img.shields.io/badge/github-lanvenUi-red.svg)](https://www.npmjs.com/package/lanven-ui)
+[![npm](https://img.shields.io/badge/github-lanvenUi-red.svg)](https://www.npmjs.com/package/lanven-ui)
 
 <p align="center">组件拆分中....</p>
 
