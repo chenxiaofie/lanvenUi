@@ -39,7 +39,7 @@
     name: 'ApiCascader',
     components: {
       LoadingOutlined,
-      [Cascader.name]: Cascader,
+      [Cascader.name as string]: Cascader,
     },
     props: {
       value: {

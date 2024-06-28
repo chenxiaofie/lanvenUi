@@ -12,10 +12,11 @@
     "strictFunctionTypes": false,
     "jsx": "preserve",
     "skipLibCheck": true,
-    "esModuleInterop": true,
+    "esModuleInterop": false,
     "lib": ["esnext", "dom"],
+    "types": ["vite/client"],
     "rootDirs": ["./", "./packages/components"],
-    // "declaration": true,
+    "declaration": true,
     // "declarationDir": "lanvenUi",
     "paths": {
       "@/*": ["./*"],

@@ -21,7 +21,7 @@ export function useUploadType({
   });
   const getStringAccept = computed(() => {
     return unref(getAccept)
-      .map((item) => {
+      .map((item: any) => {
         if (item.indexOf('/') > 0 || item.startsWith('.')) {
           return item;
         } else {

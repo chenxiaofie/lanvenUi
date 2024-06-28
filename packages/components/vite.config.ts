@@ -5,8 +5,7 @@ import { resolve } from 'path';
 import DefineOptions from 'unplugin-vue-define-options/vite';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
-const fs = require('fs');
-const path = require('path');
+import { existsSync, mkdirSync, writeFileSync } from 'fs';
 
 export default defineConfig({
   build: {
@@ -39,8 +38,8 @@ export default defineConfig({
         {
           name: 'merge-css',
           generateBundle(_: any, bundle: any) {
-            const outputDirectory = path.resolve(__dirname, 'lanvenUi/es'); // 调整输出目录
-            const outputCssFile = path.resolve(outputDirectory, 'lanvenUi.css');
+            const outputDirectory = resolve(__dirname, 'lanvenUi/es'); // 调整输出目录
+            const outputCssFile = resolve(outputDirectory, 'lanvenUi.css');
             let mergedCss = '';
 
             for (const fileName in bundle) {
@@ -51,11 +50,11 @@ export default defineConfig({
               }
             }
 
-            if (!fs.existsSync(outputDirectory)) {
-              fs.mkdirSync(outputDirectory, { recursive: true });
+            if (!existsSync(outputDirectory)) {
+              mkdirSync(outputDirectory, { recursive: true });
             }
 
-            fs.writeFileSync(outputCssFile, mergedCss);
+            writeFileSync(outputCssFile, mergedCss);
           },
         },
       ],
@@ -78,10 +77,13 @@ export default defineConfig({
     vueJsx(),
     DefineOptions(),
     dts({
-      outputDir: [resolve(__dirname, './lanvenUi/es/')],
+      outDir: [resolve(__dirname, './lanvenUi/es/')],
       //指定使用的tsconfig.json为我们整个项目根目录下掉,如果不配置,你也可以在components下新建tsconfig.json
-      tsConfigFilePath: '../../tsconfig.json',
-      skipDiagnostics: false,
+      // tsconfigPath: '../../tsconfig.json',
+      // skipDiagnostics: false,
+      compilerOptions: {
+        declaration: true,
+      },
       cleanVueFileName: true,
     }),
     createSvgIconsPlugin({

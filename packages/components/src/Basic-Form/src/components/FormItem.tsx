@@ -150,7 +150,9 @@ export default defineComponent({
       const joinLabel = Reflect.has(props.schema, 'rulesMessageJoinLabel')
         ? rulesMessageJoinLabel
         : globalRulesMessageJoinLabel;
-      const defaultMsg = createPlaceholderMessage(component) + `${joinLabel ? label : ''}`;
+      const defaultMsg = component
+        ? createPlaceholderMessage(component) + `${joinLabel ? label : ''}`
+        : '';
 
       function validator(rule: any, value: any) {
         const msg = rule.message || defaultMsg;
@@ -262,7 +264,9 @@ export default defineComponent({
           }
         },
       };
-      const Comp = componentMap.get(component) as ReturnType<typeof defineComponent>;
+      const Comp = component
+        ? (componentMap.get(component) as ReturnType<typeof defineComponent>)
+        : '';
 
       const { autoSetPlaceHolder, size } = props.formProps;
       const propsData: Recordable = {
@@ -368,7 +372,7 @@ export default defineComponent({
     }
 
     return () => {
-      const { colProps = {}, colSlot, renderColContent, component } = props.schema;
+      const { colProps = {}, colSlot, renderColContent, component } = props.schema as any;
       if (!componentMap.has(component)) {
         return null;
       }

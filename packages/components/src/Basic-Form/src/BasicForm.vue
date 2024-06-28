@@ -72,7 +72,7 @@
     emits: ['advanced-change', 'select-change', 'reset', 'submit', 'register'],
     setup(props, { emit, attrs }) {
       const formModel = reactive<Recordable>({});
-      const modalFn = useModalContext();
+      const modalFn = useModalContext() as any;
 
       const advanceState = reactive<AdvanceState>({
         isAdvanced: true,
@@ -91,6 +91,7 @@
 
       // Get the basic configuration of the form
       const getProps = computed((): FormProps => {
+        //@ts-ignore
         return { ...props, ...unref(propsRef) } as FormProps;
       });
 
@@ -213,7 +214,7 @@
 
       watch(
         () => getSchema.value,
-        (schema) => {
+        (schema: any) => {
           nextTick(() => {
             //  Solve the problem of modal adaptive height calculation when the form is placed in the modal
             modalFn?.redoModalHeight?.();

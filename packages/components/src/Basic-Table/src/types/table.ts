@@ -82,7 +82,7 @@ export interface GetColumnsParams {
 export type SizeType = 'default' | 'middle' | 'small' | 'large';
 
 export interface TableActionType {
-  reload: (opt?: FetchParams) => Promise<void>;
+  reload: (opt?: FetchParams) => Promise<Recordable<any>[] | undefined>;
   getSelectRows: <T = Recordable>() => T[];
   clearSelectedRowKeys: () => void;
   expandAll: () => void;
@@ -92,7 +92,7 @@ export interface TableActionType {
   getSelectRowKeys: () => string[];
   deleteSelectRowByKey: (key: string) => void;
   setPagination: (info: Partial<PaginationProps>) => void;
-  setTableData: <T = Recordable>(values: T[]) => void;
+  setTableData: <T extends Recordable>(values: T[]) => void;
   updateTableDataRecord: (rowKey: string | number, record: Recordable) => Recordable | void;
   deleteTableDataRecord: (rowKey: string | number | string[] | number[]) => void;
   insertTableDataRecord: (record: Recordable, index?: number) => Recordable | void;
@@ -445,7 +445,7 @@ export interface BasicColumn extends ColumnProps<Recordable> {
   editComponentProps?:
     | ((opt: {
         text: string | number | boolean | Recordable;
-        record: Recordable;
+        record: any;
         column: BasicColumn;
         index: number;
       }) => Recordable)

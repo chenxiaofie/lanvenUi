@@ -37,11 +37,16 @@ declare global {
   interface ChangeEvent extends Event {
     target: HTMLInputElement;
   }
-
+  interface HTMLElement {
+    pressKey(code: string): void;
+  }
   type RefType<T> = T | null;
 
   interface PromiseFn<T = any, R = T> {
     (...arg: T[]): Promise<R>;
+  }
+  interface CSSStyleDeclaration {
+    zoom?: number;
   }
 
   type TargetContext = '_self' | '_blank';

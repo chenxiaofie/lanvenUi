@@ -123,7 +123,7 @@ export function useDataSource(
       if (firstItem && lastItem) {
         if (!firstItem[ROW_KEY] || !lastItem[ROW_KEY]) {
           const data = cloneDeep(unref(dataSourceRef));
-          data.forEach((item) => {
+          data.forEach((item: { [x: string]: string; children: any }) => {
             if (!item[ROW_KEY]) {
               item[ROW_KEY] = buildUUID();
             }
@@ -166,19 +166,21 @@ export function useDataSource(
     if (!rowKeyName) return;
     const rowKeys = !Array.isArray(rowKey) ? [rowKey] : rowKey;
     for (const key of rowKeys) {
-      let index: number | undefined = dataSourceRef.value.findIndex((row) => {
-        let targetKeyName: string;
-        if (typeof rowKeyName === 'function') {
-          targetKeyName = rowKeyName(row);
-        } else {
-          targetKeyName = rowKeyName as string;
-        }
-        return row[targetKeyName] === key;
-      });
-      if (index >= 0) {
+      let index: number | undefined = dataSourceRef.value.findIndex(
+        (row: { [x: string]: string | number }) => {
+          let targetKeyName: string;
+          if (typeof rowKeyName === 'function') {
+            targetKeyName = rowKeyName(row);
+          } else {
+            targetKeyName = rowKeyName as string;
+          }
+          return row[targetKeyName] === key;
+        },
+      );
+      if (index && index >= 0) {
         dataSourceRef.value.splice(index, 1);
       }
-      index = unref(propsRef).dataSource?.findIndex((row) => {
+      index = unref(propsRef).dataSource?.findIndex((row: { [x: string]: string | number }) => {
         let targetKeyName: string;
         if (typeof rowKeyName === 'function') {
           targetKeyName = rowKeyName(row);
@@ -333,7 +335,7 @@ export function useDataSource(
     }
   }
 
-  function setTableData<T = Recordable>(values: T[]) {
+  function setTableData<T extends Recordable<any>>(values: T[]) {
     dataSourceRef.value = values;
   }
 

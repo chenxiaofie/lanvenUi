@@ -41,6 +41,7 @@
         type: String as PropType<string>,
       },
       theme: {
+        default: 'light',
         type: String as PropType<'dark' | 'light'>,
       },
     },

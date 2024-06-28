@@ -5,7 +5,7 @@
     :bordered="false"
     :pagination="false"
     :dataSource="getDataSource"
-    :rowKey="(r) => r[rowKey]"
+    :rowKey="(r:any) => r[rowKey]"
     :columns="getColumns"
     tableLayout="fixed"
     :scroll="scroll"
@@ -53,7 +53,7 @@
         }
         let dataSource = toRaw(unref(table.getDataSource()));
         dataSource = summaryFunc(dataSource);
-        dataSource.forEach((item, i) => {
+        dataSource.forEach((item: { [x: string]: string }, i: any) => {
           item[props.rowKey] = `${i}`;
         });
         return dataSource;
@@ -63,8 +63,12 @@
         const dataSource = unref(getDataSource);
         const columns: BasicColumn[] = cloneDeep(table.getColumns());
         const index = columns.findIndex((item) => item.flag === INDEX_COLUMN_FLAG);
-        const hasRowSummary = dataSource.some((item) => Reflect.has(item, SUMMARY_ROW_KEY));
-        const hasIndexSummary = dataSource.some((item) => Reflect.has(item, SUMMARY_INDEX_KEY));
+        const hasRowSummary = dataSource.some((item: BasicColumn) =>
+          Reflect.has(item, SUMMARY_ROW_KEY),
+        );
+        const hasIndexSummary = dataSource.some((item: BasicColumn) =>
+          Reflect.has(item, SUMMARY_INDEX_KEY),
+        );
 
         if (index !== -1) {
           if (hasIndexSummary) {

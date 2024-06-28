@@ -37,7 +37,7 @@ export function useFormEvents({
     if (!formEl) return;
 
     Object.keys(formModel).forEach((key) => {
-      const schema = unref(getSchema).find((item) => item.field === key);
+      const schema = unref(getSchema).find((item: { field: string }) => item.field === key);
       const isInput = schema?.component && defaultValueComponents.includes(schema.component);
       formModel[key] = isInput ? defaultValueRef.value[key] || '' : defaultValueRef.value[key];
     });
@@ -52,16 +52,16 @@ export function useFormEvents({
    */
   async function setFieldsValue(values: Recordable): Promise<void> {
     const fields = unref(getSchema)
-      .map((item) => item.field)
+      .map((item: { field: any }) => item.field)
       .filter(Boolean);
 
     // key 支持 a.b.c 的嵌套写法
     const delimiter = '.';
-    const nestKeyArray = fields.filter((item) => item.indexOf(delimiter) >= 0);
+    const nestKeyArray = fields.filter((item: string | string[]) => item.indexOf(delimiter) >= 0);
 
     const validKeys: string[] = [];
     Object.keys(values).forEach((key) => {
-      const schema = unref(getSchema).find((item) => item.field === key);
+      const schema = unref(getSchema).find((item: { field: string }) => item.field === key);
       let value = values[key];
 
       const hasKey = Reflect.has(values, key);
@@ -205,7 +205,7 @@ export function useFormEvents({
     }
     const schema: FormSchema[] = [];
     updateData.forEach((item) => {
-      unref(getSchema).forEach((val) => {
+      unref(getSchema).forEach((val: FormSchema) => {
         if (val.field === item.field) {
           const newSchema = deepMerge(val, item);
           schema.push(newSchema as FormSchema);
@@ -252,7 +252,7 @@ export function useFormEvents({
    * @description: Is it time
    */
   function itemIsDateType(key: string) {
-    return unref(getSchema).some((item) => {
+    return unref(getSchema).some((item: FormSchema) => {
       return item.field === key ? dateItemType.includes(item?.component ?? '') : false;
     });
   }

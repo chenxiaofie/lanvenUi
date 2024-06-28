@@ -9,7 +9,7 @@ import { formatToDate } from '@/utils/dateUtil';
 import { ACTION_COLUMN_FLAG, DEFAULT_ALIGN, INDEX_COLUMN_FLAG, PAGE_SIZE } from '../const';
 
 function handleItem(item: BasicColumn, ellipsis: boolean) {
-  const { key, dataIndex, children } = item;
+  const { key, dataIndex, children } = item as any;
   item.align = item.align || DEFAULT_ALIGN;
   if (ellipsis) {
     if (!key) {
@@ -99,7 +99,7 @@ function handleActionColumn(propsRef: ComputedRef<BasicTableProps>, columns: Bas
 export function useColumns(
   propsRef: ComputedRef<BasicTableProps>,
   getPaginationRef: ComputedRef<boolean | PaginationProps>,
-) {
+): any {
   const columnsRef = ref(unref(propsRef).columns) as unknown as Ref<BasicColumn[]>;
   let cacheColumns = unref(propsRef).columns;
 
@@ -113,7 +113,7 @@ export function useColumns(
     }
     const { ellipsis } = unref(propsRef);
 
-    columns.forEach((item) => {
+    columns.forEach((item: any) => {
       const { customRender, slots } = item;
 
       handleItem(
@@ -143,10 +143,10 @@ export function useColumns(
 
     const columns = cloneDeep(viewColumns);
     return columns
-      .filter((column) => {
+      .filter((column: any) => {
         return column;
       })
-      .map((column) => {
+      .map((column: any) => {
         const { slots, customRender, format, edit, editRow, flag } = column;
 
         if (!slots || !slots?.title) {
@@ -156,7 +156,7 @@ export function useColumns(
         }
         const isDefaultAction = [INDEX_COLUMN_FLAG, ACTION_COLUMN_FLAG].includes(flag!);
         if (!customRender && format && !edit && !isDefaultAction) {
-          column.customRender = ({ text, record, index }) => {
+          column.customRender = ({ text, record, index }: any) => {
             return formatCell(text, format, record, index);
           };
         }
@@ -171,9 +171,9 @@ export function useColumns(
 
   watch(
     () => unref(propsRef).columns,
-    (columns) => {
+    (columns: any) => {
       columnsRef.value = columns;
-      cacheColumns = columns?.filter((item) => !item.flag) ?? [];
+      cacheColumns = columns?.filter((item: { flag: any }) => !item.flag) ?? [];
     },
   );
 
@@ -181,7 +181,7 @@ export function useColumns(
     if (!dataIndex || !value) {
       return;
     }
-    cacheColumns.forEach((item) => {
+    cacheColumns.forEach((item: { dataIndex: string }) => {
       if (item.dataIndex === dataIndex) {
         Object.assign(item, value);
         return;
@@ -203,14 +203,14 @@ export function useColumns(
 
     const firstColumn = columns[0];
 
-    const cacheKeys = cacheColumns.map((item) => item.dataIndex);
+    const cacheKeys = cacheColumns.map((item: { dataIndex: any }) => item.dataIndex);
 
     if (!isString(firstColumn) && !isArray(firstColumn)) {
       columnsRef.value = columns as BasicColumn[];
     } else {
       const columnKeys = (columns as (string | string[])[]).map((m) => m.toString());
       const newColumns: BasicColumn[] = [];
-      cacheColumns.forEach((item) => {
+      cacheColumns.forEach((item: BasicColumn) => {
         newColumns.push({
           ...item,
           defaultHidden: !columnKeys.includes(item.dataIndex?.toString() || (item.key as string)),
@@ -233,10 +233,10 @@ export function useColumns(
     const { ignoreIndex, ignoreAction, sort } = opt || {};
     let columns = toRaw(unref(getColumnsRef));
     if (ignoreIndex) {
-      columns = columns.filter((item) => item.flag !== INDEX_COLUMN_FLAG);
+      columns = columns.filter((item: BasicColumn) => item.flag !== INDEX_COLUMN_FLAG);
     }
     if (ignoreAction) {
-      columns = columns.filter((item) => item.flag !== ACTION_COLUMN_FLAG);
+      columns = columns.filter((item: BasicColumn) => item.flag !== ACTION_COLUMN_FLAG);
     }
 
     if (sort) {
@@ -299,7 +299,7 @@ export function formatCell(text: string, format: CellFormat, record: Recordable,
       if (!dateFormat) {
         return text;
       }
-      return formatToDate(text, dateFormat);
+      return formatToDate(text as any, dateFormat);
     }
 
     // Map

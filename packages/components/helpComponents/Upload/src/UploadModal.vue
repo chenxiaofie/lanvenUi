@@ -94,13 +94,15 @@
       const getIsSelectFile = computed(() => {
         return (
           fileListRef.value.length > 0 &&
-          !fileListRef.value.every((item) => item.status === UploadResultStatus.SUCCESS)
+          !fileListRef.value.every(
+            (item: { status?: UploadResultStatus }) => item.status === UploadResultStatus.SUCCESS,
+          )
         );
       });
 
       const getOkButtonProps = computed(() => {
         const someSuccess = fileListRef.value.some(
-          (item) => item.status === UploadResultStatus.SUCCESS,
+          (item: { status?: UploadResultStatus }) => item.status === UploadResultStatus.SUCCESS,
         );
         return {
           disabled: isUploadingRef.value || fileListRef.value.length === 0 || !someSuccess,
@@ -109,7 +111,7 @@
 
       const getUploadBtnText = computed(() => {
         const someError = fileListRef.value.some(
-          (item) => item.status === UploadResultStatus.ERROR,
+          (item: { status?: UploadResultStatus }) => item.status === UploadResultStatus.ERROR,
         );
         return isUploadingRef.value ? '上传中' : someError ? '重新上传失败文件' : '开始上传';
       });
@@ -153,7 +155,9 @@
 
       // 删除
       function handleRemove(record: FileItem) {
-        const index = fileListRef.value.findIndex((item) => item.uuid === record.uuid);
+        const index = fileListRef.value.findIndex(
+          (item: { uuid: string }) => item.uuid === record.uuid,
+        );
         index !== -1 && fileListRef.value.splice(index, 1);
         emit('delete', record);
       }
@@ -206,16 +210,18 @@
       // 点击开始上传
       async function handleStartUpload() {
         const { maxNumber } = props;
-        if ((fileListRef.value.length + props.previewFileList?.length ?? 0) > maxNumber) {
+        if (fileListRef.value.length + props.previewFileList?.length > maxNumber) {
           return createMessage.warning(`最多只能上传${maxNumber}个文件`);
         }
         try {
           isUploadingRef.value = true;
           // 只上传不是成功状态的
           const uploadFileList =
-            fileListRef.value.filter((item) => item.status !== UploadResultStatus.SUCCESS) || [];
+            fileListRef.value.filter(
+              (item: { status?: UploadResultStatus }) => item.status !== UploadResultStatus.SUCCESS,
+            ) || [];
           const data = await Promise.all(
-            uploadFileList.map((item) => {
+            uploadFileList.map((item: FileItem) => {
               return uploadApiByItem(item);
             }),
           );

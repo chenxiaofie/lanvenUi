@@ -247,7 +247,7 @@ export function useTableScroll(
     return tableWidth > width ? '100%' : width;
   });
 
-  const getScrollRef = computed(() => {
+  const getScrollRef: any = computed(() => {
     const tableHeight = unref(tableHeightRef);
     const { canResize, scroll } = unref(propsRef);
     return {

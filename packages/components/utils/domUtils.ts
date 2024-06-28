@@ -110,9 +110,9 @@ export function getViewportOffset(element: Element): ViewportOffsetResult {
 
   let clientWidth = window.document.documentElement.clientWidth;
   let clientHeight = window.document.documentElement.clientHeight;
-  let zoom = window.document.documentElement.style.zoom;
-  zoom = getNumOrElse(zoom, 1);
-  if (zoom !== 1) {
+  let zoom = window.document.documentElement.style.zoom as any;
+  zoom = getNumOrElse(zoom, 1) as any;
+  if (zoom && zoom !== 1) {
     clientWidth = clientWidth / zoom;
     clientHeight = clientHeight / zoom;
   }
@@ -188,8 +188,8 @@ export function useRafThrottle<T extends FunctionArgs>(fn: T): T {
 
 // js触发键盘
 export function fnEmitKeyDown() {
-  HTMLElement.prototype.pressKey = function (code) {
-    const evt = document.createEvent('UIEvents');
+  HTMLElement.prototype.pressKey = function (code: any) {
+    const evt = document.createEvent('UIEvents') as UIEvent & { key?: string };
     evt.key = code;
     evt.initEvent('keydown', true, true);
     this.dispatchEvent(evt);
