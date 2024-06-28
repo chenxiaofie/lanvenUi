@@ -6,6 +6,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: '/lanvenUi', // 设置为根路径
   title: 'lanvenUi',
   description: 'web vue3.x ui组件库',
   themeConfig: {
