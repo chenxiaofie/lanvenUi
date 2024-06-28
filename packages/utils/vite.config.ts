@@ -1,6 +1,4 @@
-/// <reference types="vitest" />
 import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
 import { resolve } from 'path';
 export default defineConfig({
@@ -33,12 +31,12 @@ export default defineConfig({
 
   plugins: [
     dts({
-      outputDir: resolve(__dirname, './dist/es'),
-      tsConfigFilePath: '../../tsconfig.json',
+      outDir: resolve(__dirname, './dist/es'),
+      tsconfigPath: '../../tsconfig.json',
     }),
     dts({
-      outputDir: resolve(__dirname, './dist/lib'),
-      tsConfigFilePath: '../../tsconfig.json',
+      outDir: resolve(__dirname, './dist/lib'),
+      tsconfigPath: '../../tsconfig.json',
     }),
   ],
 });
