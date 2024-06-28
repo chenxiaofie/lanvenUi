@@ -206,7 +206,7 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0
       lanvenUi:
-        specifier: workspace:*
+        specifier: 1.4.1
         version: link:../packages/components/lanvenUi
       vite-plugin-md:
         specifier: ^0.21.5
