@@ -29,7 +29,6 @@ yarn.lock
 *.sw?
 *.rar
 *.lock
-/pnpm-lock.yaml
 /workspace.code-workspace
 lanvenUi
 #dev
