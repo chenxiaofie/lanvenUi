@@ -17,12 +17,24 @@ npm i lanven-ui
 
 ## 快速开始
 
-```html
+```vue
 <template>
-  <button type="primary">按钮</button>
+  <BasicForm @register="register" />
 </template>
 <script lang="ts" setup>
-  import { Button } from 'lanven-ui';
+  import { BasicForm, useForm } from 'lanvenUi';
+
+  const [register] = useForm({
+    labelWidth: 0,
+    schemas: [
+      {
+        field: 'field1',
+        component: 'Input',
+        defaultValue: '123',
+        label: '字段1',
+      },
+    ],
+  });
 </script>
 ```
 
