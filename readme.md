@@ -5,6 +5,8 @@
 - 💪 基于 vue3 和 ant design vue 的组件库
 - 🔥 Written in TypeScript
 
+[![npm](https://img.shields.io/badge/npm-lanvenUi-red.svg)](https://www.npmjs.com/package/lanven-ui)
+
 <p align="center">组件拆分中....</p>
 
 ## Install
@@ -25,6 +27,8 @@ npm i lanven-ui
 ```
 
 ## 在线文档
+
+[lanven-ui](https://chenxiaofie.github.io/lanvenUi/)
 
 因为 vben 的公共组件没有组件库 这里面用到的组件是从 vben 框架抽离出来的同时新增和优化了部分 功能更加强大!
 
