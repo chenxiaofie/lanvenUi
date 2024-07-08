@@ -20,7 +20,7 @@ npm i lanven-ui
   <BasicForm @register="register" />
 </template>
 <script lang="ts" setup>
-  import { BasicForm, useForm } from 'lanvenUi';
+  import { BasicForm, useForm } from 'lanven-ui';
 
   const [register] = useForm({
     labelWidth: 0,
