@@ -31,12 +31,14 @@ export default defineConfig({
 
   plugins: [
     dts({
-      outDir: resolve(__dirname, './dist/es'),
-      tsconfigPath: '../../tsconfig.json',
+      outDir: [resolve(__dirname, './dist/es/')],
+      compilerOptions: {
+        declaration: true,
+      },
+      cleanVueFileName: true,
     }),
     dts({
       outDir: resolve(__dirname, './dist/lib'),
-      tsconfigPath: '../../tsconfig.json',
     }),
   ],
 });

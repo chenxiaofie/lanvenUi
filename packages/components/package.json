@@ -18,7 +18,7 @@
   "license": "",
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
-    "@lanven-ui/utils": "workspace:^",
+    "@lanven-ui/utils": "1.0.3",
     "@types/node": "^20.12.11",
     "@vitejs/plugin-vue": "^5.0.5",
     "@vitejs/plugin-vue-jsx": "^3.1.0",

@@ -38,8 +38,8 @@ export default defineConfig({
         {
           name: 'merge-css',
           generateBundle(_: any, bundle: any) {
-            const outputDirectory = resolve(__dirname, 'lanvenUi/es'); // 调整输出目录
-            const outputCssFile = resolve(outputDirectory, 'lanvenUi.css');
+            const outputDirectory = resolve(__dirname, 'lanven-ui/es'); // 调整输出目录
+            const outputCssFile = resolve(outputDirectory, 'lanven-ui.css');
             let mergedCss = '';
 
             for (const fileName in bundle) {
@@ -78,9 +78,6 @@ export default defineConfig({
     DefineOptions(),
     dts({
       outDir: [resolve(__dirname, './lanven-ui/es/')],
-      //指定使用的tsconfig.json为我们整个项目根目录下掉,如果不配置,你也可以在components下新建tsconfig.json
-      // tsconfigPath: '../../tsconfig.json',
-      // skipDiagnostics: false,
       compilerOptions: {
         declaration: true,
       },

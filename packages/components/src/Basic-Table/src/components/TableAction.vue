@@ -91,10 +91,10 @@
 
       const getActions = computed(() => {
         return (toRaw(props.actions) || [])
-          .filter((action) => {
+          .filter((action: any) => {
             return action;
           })
-          .map((action) => {
+          .map((action: { popConfirm: any }) => {
             const { popConfirm } = action;
             return {
               getPopupContainer: () => unref((table as any)?.wrapRef.value) ?? document.body,
@@ -110,10 +110,10 @@
       });
 
       const getDropdownList = computed((): any[] => {
-        const list = (toRaw(props.dropDownActions) || []).filter((action) => {
+        const list = (toRaw(props.dropDownActions) || []).filter((action: any) => {
           return action;
         });
-        return list.map((action, index) => {
+        return list.map((action: { label: any; popConfirm: any }, index: number) => {
           const { label, popConfirm } = action;
           return {
             ...action,

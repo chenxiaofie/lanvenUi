@@ -12,6 +12,5 @@
     "forceConsistentCasingInFileNames": true,
     "strictFunctionTypes": false,
     "typeRoots": ["index.d.ts"]
-  },
-  "include": ["index.d.ts"]
+  }
 }
