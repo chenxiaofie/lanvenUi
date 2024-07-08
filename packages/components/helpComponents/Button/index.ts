@@ -1,4 +1,4 @@
-import { withInstall } from '@lanvenUi/utils';
+import { withInstall } from '@lanven-ui/utils';
 import type { ExtractPropTypes } from 'vue';
 import basicButton from './src/BasicButton.vue';
 import popConfirmButton from './src/PopConfirmButton.vue';

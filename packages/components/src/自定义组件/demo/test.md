@@ -3,7 +3,7 @@
 <test />
 
 <script setup>
-    import {test} from 'lanvenUi'
+    import {test} from 'lanven-ui'
 </script>
 
 ```ts
@@ -12,6 +12,6 @@
 </template>
 
 <script setup>
-    import {test} from 'lanvenUi'
+    import {test} from 'lanven-ui'
 </script>
 ```

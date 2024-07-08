@@ -1,4 +1,4 @@
-import { withInstall } from '@lanvenUi/utils';
+import { withInstall } from '@lanven-ui/utils';
 import dropdown from './src/Dropdown.vue';
 
 export * from './src/typing';

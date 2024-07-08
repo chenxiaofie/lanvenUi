@@ -1,4 +1,4 @@
-import { withInstall } from '@lanvenUi/utils';
+import { withInstall } from '@lanven-ui/utils';
 import countButton from './src/CountButton.vue';
 import countdownInput from './src/CountdownInput.vue';
 

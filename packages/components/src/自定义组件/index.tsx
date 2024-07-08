@@ -1,5 +1,5 @@
 import { defineComponent, ref } from 'vue';
-import { withInstall } from '@lanvenUi/utils';
+import { withInstall } from '@lanven-ui/utils';
 
 // import TestVue from './index.vue';
 
@@ -13,7 +13,6 @@ const Test = defineComponent({
     return () => {
       return (
         <div>
-
           {num.value}
           {/* 测试测试 */}
           {slots.default && slots.default()}

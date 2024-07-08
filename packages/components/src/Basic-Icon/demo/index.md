@@ -12,7 +12,7 @@
 </template>
 <script lang="ts" setup>
   import 'iconify-icon';
-  import { Icon } from 'lanvenUi';
+  import { Icon } from 'lanven-ui';
 </script>
 ```
 
@@ -56,7 +56,7 @@ import 'virtual:svg-icons-register';
   <SvgIcon name="copy" copy />
 </template>
 <script lang="ts" setup>
-  import { SvgIcon } from 'lanvenUi';
+  import { SvgIcon } from 'lanven-ui';
 </script>
 ```
 
@@ -69,11 +69,11 @@ import 'virtual:svg-icons-register';
   <IconPicker />
 </template>
 <script lang="ts" setup>
-  import { IconPicker } from 'lanvenUi';
+  import { IconPicker } from 'lanven-ui';
 </script>
 ```
 
 <script lang="ts" setup>
 import 'iconify-icon';
-import { Icon,SvgIcon,IconPicker } from 'lanvenUi';
+import { Icon,SvgIcon,IconPicker } from 'lanven-ui';
 </script>

@@ -1,16 +1,16 @@
 <h1 align="center">
-    lanvenUi
+    lanven-ui
 </h1>
 
 - 💪 Vue 3 Composition API
 - 🔥 Written in TypeScript
 
-<p align="center">lanvenUi UI - A Vue.js 3 UI library</p>
+<p align="center">lanven-ui UI - A Vue.js 3 UI library</p>
 
 ## Install
 
 ```
-npm i lanvenUi
+npm i lanven-ui
 ```
 
 ## 快速开始
@@ -20,6 +20,6 @@ npm i lanvenUi
   <button type="primary">按钮</button>
 </template>
 <script lang="ts" setup>
-  import { Button } from 'lanvenUi';
+  import { Button } from 'lanven-ui';
 </script>
 ```

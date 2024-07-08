@@ -20,7 +20,7 @@
   />
 </template>
 <script lang="ts" setup>
-  import { BasicColumn, BasicTable, useTable } from 'lanvenUi';
+  import { BasicColumn, BasicTable, useTable } from 'lanven-ui';
   import { Button } from 'ant-design-vue';
   const columns: BasicColumn[] = [
     {
@@ -168,7 +168,7 @@
 
 ## ComponentType
 
-编辑表格的表单组件类型 [src/components/Table/src/componentMap.ts](https://github.com/chenxiaofie/lanvenUi/-/blob/master/packages/components/src/Basic-Table/src/types/componentType.ts)
+编辑表格的表单组件类型 [src/components/Table/src/componentMap.ts](https://github.com/chenxiaofie/lanven-ui/-/blob/master/packages/components/src/Basic-Table/src/types/componentType.ts)
 
 ```ts
 export type ComponentType =
@@ -264,7 +264,7 @@ xxxx 为 form 组件的 slot。具体参考 Form 组件文档，例如： `form-
   />
 </template>
 <script lang="ts" setup>
-  import { TableAction } from 'lanvenUi';
+  import { TableAction } from 'lanven-ui';
   const actionColumn: BasicColumn = {
     width: 160, // 操作列宽
     actions: (record) => [
@@ -382,7 +382,7 @@ export interface PopConfirm {
   </BasicTable>
 </template>
 <script lang="ts" setup>
-  import { BasicColumn, BasicTable, useTable, TableImg } from 'lanvenUi';
+  import { BasicColumn, BasicTable, useTable, TableImg } from 'lanven-ui';
   const Imgcolumns: BasicColumn[] = [
     {
       title: '图片列表1',
@@ -425,7 +425,7 @@ export interface PopConfirm {
 | srcPrefix  | `string`   | -       | 在每一个图片 src 前插入的内容    |
 
 <script lang="ts" setup>
-import { BasicColumn, BasicTable,useTable,TableAction,TableImg   } from 'lanvenUi';
+import { BasicColumn, BasicTable,useTable,TableAction,TableImg   } from 'lanven-ui';
 import { Button } from 'ant-design-vue'
 const columns: BasicColumn[] = [
     {

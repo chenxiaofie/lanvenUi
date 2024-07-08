@@ -1,4 +1,4 @@
-import { withInstall } from '@lanvenUi/utils';
+import { withInstall } from '@lanven-ui/utils';
 import BasicTable from './src/BasicTable.vue';
 export { default as TableAction } from './src/components/TableAction.vue';
 export { default as EditTableHeaderIcon } from './src/components/EditTableHeaderIcon.vue';

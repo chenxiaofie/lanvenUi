@@ -16,7 +16,7 @@
     "lib": ["esnext", "dom"],
     "rootDirs": ["./", "./packages/components"],
     // "declaration": true,
-    // "declarationDir": "lanvenUi",
+    // "declarationDir": "lanven-ui",
     "paths": {
       "@/*": ["./*"],
       "#/*": ["./types/*"],

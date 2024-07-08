@@ -1,4 +1,4 @@
-import { withInstall } from '@lanvenUi/utils';
+import { withInstall } from '@lanven-ui/utils';
 import collapseContainer from './src/collapse/CollapseContainer.vue';
 import scrollContainer from './src/ScrollContainer.vue';
 import lazyContainer from './src/LazyContainer.vue';

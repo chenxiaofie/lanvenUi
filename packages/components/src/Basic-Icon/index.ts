@@ -1,4 +1,4 @@
-import { withInstall } from '@lanvenUi/utils';
+import { withInstall } from '@lanven-ui/utils';
 import Icon from './src/Icon.vue';
 
 export { default as Icon } from './src/Icon.vue';

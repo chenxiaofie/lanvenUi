@@ -1,4 +1,4 @@
-import { withInstall } from '@lanvenUi/utils';
+import { withInstall } from '@lanven-ui/utils';
 import BasicDrawer from './src/BasicDrawer.vue';
 
 export { useDrawer, useDrawerInner } from './src/useDrawer';

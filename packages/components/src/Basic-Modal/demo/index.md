@@ -4,14 +4,20 @@
 
 ## 使用
 
-<BasicModal title='欢迎使用' @register="registerModal" @ok='onOk' > </BasicModal> <Button @click='openModal'>展开</Button>
+<BasicModal title='欢迎使用' @register="registerModal" @ok='onOk' > <template #footer> <BasicModalFooter
+          okText="保存"
+          cancelText="不保存"
+         /> </template> </BasicModal> <Button @click='openModal'>展开</Button>
 
 ```vue
 <template>
-  <BasicModal title="欢迎使用" @register="registerModal" /> <Button @click="openModal">展开</Button>
+  <BasicModal title="欢迎使用" @register="registerModal" @ok="onOk">
+    <template #footer> <BasicModalFooter okText="保存" cancelText="不保存" /> </template>
+  </BasicModal>
+  <Button @click="openModal">展开</Button>
 </template>
 <script lang="ts" setup>
-  import { BasicModal, useModal, useModalInner } from 'lanvenUi';
+  import { BasicModal, useModal, useModalInner, BasicModalFooter } from 'lanven-ui';
   import { Button } from 'ant-design-vue';
   const [registerModal, { openModal, closeModal }] = useModal();
 </script>
@@ -75,7 +81,7 @@
 | `appendFooter` | 确认按钮的右边(不使用 footer 插槽时有效)           |
 
 <script lang="ts" setup>
-import { BasicModal,useModal,useModalInner } from 'lanvenUi'; 
+import { BasicModal,useModal,useModalInner,BasicModalFooter } from 'lanven-ui'; 
 import {Button} from 'ant-design-vue'
 const [registerModal, { openModal, closeModal }] = useModal();
 

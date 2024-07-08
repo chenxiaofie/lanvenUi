@@ -1,34 +1,34 @@
 <h1 align="center">
-    lanvenUi
+    lanven-ui
 </h1>
 
 - 💪 Vue 3 Composition API
 - 🔥 Written in TypeScript
 
-<p align="center">lanvenUi - A Vue.js@3.x UI library</p>
+<p align="center">lanven-ui - A Vue.js@3.x UI library</p>
 
 ## Install
 
 ```cmd
-npm i lanvenUi
+npm i lanven-ui
 ```
 
 ## 引入 css
 
 ```ts
-import 'lanvenUi/es/lanvenUi.css';
+import 'lanven-ui/es/lanvenUi.css';
 ```
 
 ## 按需加载
 
-lanvenUi 默认支持基于 ES modules 的 tree shaking。
+lanven-ui 默认支持基于 ES modules 的 tree shaking。
 
 ```vue
 <template>
   <BasicForm @register="register" />
 </template>
 <script lang="ts" setup>
-  import { BasicForm, useForm } from 'lanvenUi';
+  import { BasicForm, useForm } from 'lanven-ui';
 
   const [register] = useForm({
     labelWidth: 0,
@@ -48,8 +48,8 @@ lanvenUi 默认支持基于 ES modules 的 tree shaking。
 
 ```ts
 //main.ts
-import lanven from 'lanvenUi';
-import 'lanvenUi/es/lanvenUi.css';
+import lanven from 'lanven-ui';
+import 'lanven-ui/es/lanvenUi.css';
 async function bootstrap() {
   const app = createApp(App);
   app.use(lanven);

@@ -6,14 +6,14 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/lanvenUi', // 设置为根路径
-  title: 'lanvenUi',
+  base: '/lanven-ui', // 设置为根路径
+  title: 'lanven-ui',
   description: 'web vue3.x ui组件库',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [],
     sidebar: sideBar,
-    socialLinks: [{ icon: 'github', link: 'https://github.com/chenxiaofie/lanvenUi/' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/chenxiaofie/lanven-ui/' }],
   },
   vite: {
     // Vite 配置选项

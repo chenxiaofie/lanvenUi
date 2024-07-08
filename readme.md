@@ -1,5 +1,5 @@
 <h1 align="center">
-    vbenJs-lanvenUi
+    vbenJs-lanven-ui
 </h1>
 
 - 💪 基于 vue3 和 ant design vue 的组件库
@@ -10,7 +10,7 @@
 ## Install
 
 ```
-npm i lanvenUi
+npm i lanven-ui
 ```
 
 ## 快速开始
@@ -20,7 +20,7 @@ npm i lanvenUi
   <button type="primary">按钮</button>
 </template>
 <script lang="ts" setup>
-  import { Button } from 'lanvenUi';
+  import { Button } from 'lanven-ui';
 </script>
 ```
 

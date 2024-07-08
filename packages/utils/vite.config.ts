@@ -25,7 +25,7 @@ export default defineConfig({
     },
     lib: {
       entry: './index.ts',
-      name: 'lanvenUiUtils',
+      name: 'lanven-uiUtils',
     },
   },
 

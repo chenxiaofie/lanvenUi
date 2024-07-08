@@ -1,6 +1,6 @@
-import 'lanvenUi/es/lanvenUi.css';
-// import 'lanvenUi/assets/index.css';
-// import 'lanvenUi/assets/index.less';
+import 'lanven-ui/es/lanvenUi.css';
+// import 'lanven-ui/assets/index.css';
+// import 'lanven-ui/assets/index.less';
 import DefaultTheme from 'vitepress/theme';
 import DefaultExamples from '../../../components/index';
 // import theme from './theme.vue';

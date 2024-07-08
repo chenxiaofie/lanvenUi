@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import { BasicForm, FormSchema } from 'lanvenUi';
+import { BasicForm, FormSchema } from 'lanven-ui';
 const schemas: FormSchema[] = [
   {
     field: 'field',
@@ -53,7 +53,7 @@ const handleSubmit = (values: any) => alert('hellow world');
   <BasicForm @register="register" @submit="handleSubmitUseForm" />
 </template>
 <script lang="ts" setup>
-import { BasicForm, FormSchema,useForm  } from 'lanvenUi';
+import { BasicForm, FormSchema,useForm  } from 'lanven-ui';
 const schemas: FormSchema[] = [
   {
     field: 'field',
@@ -180,7 +180,7 @@ updateSchema({ field: 'filed', componentProps: { disabled: true } });
 
 常用属性：span、offset、xs、sm、md、lg、xl、xxl
 
-详细见 [src/components/Form/src/types/index.ts](https://github.com/chenxiaofie/lanvenUi/-/blob/master/packages/components/src/Basic-Form/types/index.ts)
+详细见 [src/components/Form/src/types/index.ts](https://github.com/chenxiaofie/lanven-ui/-/blob/master/packages/components/src/Basic-Form/types/index.ts)
 
 ### fieldMapToTime 日期转换
 
@@ -195,7 +195,7 @@ updateSchema({ field: 'filed', componentProps: { disabled: true } });
   <BasicForm @register="registerTimeMap" @submit="handleSubmitTimeUseForm" />
 </template>
 <script lang='ts' setup>
-import {useForm,BasicForm} from 'lanvenUi'
+import {useForm,BasicForm} from 'lanven-ui'
 const [registerTimeMap] = useForm({
   labelWidth: 0,
   schemas: [
@@ -240,7 +240,7 @@ const handleSubmitTimeUseForm=(values:any)=>{
 | helpComponentProps | `helpComponentProps` | - | - | 标签名右侧温馨提示组件 props,见下方 HelpComponentProps |
 | labelWidth | `string\|number` | - | - | 覆盖统一设置的 labelWidth |
 | disabledLabelWidth | `boolean` | `false` | `false\|true` | 覆盖统一设置的 labelWidth |
-| component | `ComponentType` | `Input` | - | [组件类型](https://github.com/chenxiaofie/lanvenUi/-/blob/master/packages/components/src/Basic-Form/types/index.ts) |
+| component | `ComponentType` | `Input` | - | [组件类型](https://github.com/chenxiaofie/lanven-ui/-/blob/master/packages/components/src/Basic-Form/types/index.ts) |
 | componentProps | `any,()=>{}` | - | - | 所渲染的组件的 props |
 | rules | `ValidationRule[]` | - | - | 校验规则,见下方 ValidationRule |
 | required | `boolean` | - | - | 简化 rules 配置 |
@@ -339,7 +339,7 @@ export interface HelpComponentProps {
 </template>
 
 <script lang="ts" setup>
-import { BasicForm, useForm  } from 'lanvenUi';
+import { BasicForm, useForm  } from 'lanven-ui';
 
 const [slotRegister, { validate }] = useForm({
   labelWidth: 0,
@@ -373,7 +373,7 @@ async function handlSlotSubmit(){
   <BasicForm @register="renderRegister" />
 </template>
 <script lang="ts" setup>
-import { BasicForm, useForm } from 'lanvenUi';
+import { BasicForm, useForm } from 'lanven-ui';
 const [renderRegister] = useForm({
   labelWidth: 0,
   schemas: [
@@ -408,7 +408,7 @@ const [renderRegister] = useForm({
   <BasicForm @register="valideRegister" />
 </template>
 <script lang="ts" setup>
-import { BasicForm, useForm } from 'lanvenUi';
+import { BasicForm, useForm } from 'lanven-ui';
 const [valideRegister] = useForm({
   schemas: [
        // 高级示例：跨字段校验，如：密码与确认密码是否相同
@@ -506,7 +506,7 @@ Slots
 | advanceAfter  | 展开按钮后   |
 
 <script lang="ts" setup>
-import { BasicForm, FormSchema,useForm  } from 'lanvenUi';
+import { BasicForm, FormSchema,useForm  } from 'lanven-ui';
 const schemas: FormSchema[] = [
   {
     field: 'field',

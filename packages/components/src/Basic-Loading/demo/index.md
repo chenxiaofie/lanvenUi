@@ -12,7 +12,7 @@ Loading 组件 可以配合生成 vue 指令
 
 <script lang="ts" setup>
   import { defineComponent, reactive, toRefs, ref } from 'vue';
-  import { Loading } from 'lanvenUi';
+  import { Loading } from 'lanven-ui';
   import {Button} from 'ant-design-vue'
   const loading=ref(false)
   const absolutes=ref(false)
@@ -46,7 +46,7 @@ Loading 组件 可以配合生成 vue 指令
 </template>
 <script lang="ts" setup>
   import { defineComponent, reactive, toRefs, ref } from 'vue';
-  import { Loading } from 'lanvenUi';
+  import { Loading } from 'lanven-ui';
   import { Button } from 'ant-design-vue';
   const loading = ref(false);
   const absolutes = ref(false);

@@ -17,7 +17,7 @@
   <Button @click="openModal">展开</Button>
 </template>
 <script lang="ts" setup>
-  import { BasicDrawer, useDrawerInner, useDrawer } from 'lanvenUi';
+  import { BasicDrawer, useDrawerInner, useDrawer } from 'lanven-ui';
   import { Button } from 'ant-design-vue';
   const [register, { openDrawer }] = useDrawer();
   function openModal() {
@@ -60,7 +60,7 @@
 | ok             | (e)=>void               | 点击确定回调       |
 
 <script lang="ts" setup>
- import { BasicDrawer, useDrawerInner,useDrawer } from 'lanvenUi';
+ import { BasicDrawer, useDrawerInner,useDrawer } from 'lanven-ui';
  import { Button } from 'ant-design-vue';
  const [register,{openDrawer}]=useDrawer()
  function openModal(){

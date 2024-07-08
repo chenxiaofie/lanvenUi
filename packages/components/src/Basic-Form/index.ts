@@ -1,4 +1,4 @@
-import { withInstall } from '@lanvenUi/utils';
+import { withInstall } from '@lanven-ui/utils';
 import BasicForm from './src/BasicForm.vue';
 
 export type * from './types/form';

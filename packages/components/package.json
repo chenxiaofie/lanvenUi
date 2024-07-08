@@ -1,6 +1,6 @@
 {
-  "name": "lanvenUi",
-  "version": "1.0.1",
+  "name": "lanven-ui",
+  "version": "0.0.1",
   "description": "",
   "main": "index.ts",
   "type": "module",
@@ -12,13 +12,13 @@
     "es"
   ],
   "keywords": [
-    "lanvenUi"
+    "lanven-ui"
   ],
   "author": "陈佳俊",
   "license": "",
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
-    "@lanvenUi/utils": "workspace:^",
+    "@lanven-ui/utils": "workspace:^",
     "@types/node": "^20.12.11",
     "@vitejs/plugin-vue": "^5.0.5",
     "@vitejs/plugin-vue-jsx": "^3.1.0",

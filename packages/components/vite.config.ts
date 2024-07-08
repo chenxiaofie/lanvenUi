@@ -11,7 +11,7 @@ export default defineConfig({
   build: {
     target: 'modules',
     //打包文件目录
-    outDir: 'lanvenUi',
+    outDir: 'lanven-ui',
     //压缩
     minify: false,
     //css分离
@@ -28,7 +28,7 @@ export default defineConfig({
           preserveModulesRoot: './',
           exports: 'named',
           //配置打包根目录
-          dir: './lanvenUi/es',
+          dir: './lanven-ui/es',
           globals: {
             vue: 'Vue',
           },
@@ -61,7 +61,7 @@ export default defineConfig({
     },
     lib: {
       entry: './index.ts',
-      name: 'lanvenUi',
+      name: 'lanven-ui',
     },
   },
   css: {
@@ -77,7 +77,7 @@ export default defineConfig({
     vueJsx(),
     DefineOptions(),
     dts({
-      outDir: [resolve(__dirname, './lanvenUi/es/')],
+      outDir: [resolve(__dirname, './lanven-ui/es/')],
       //指定使用的tsconfig.json为我们整个项目根目录下掉,如果不配置,你也可以在components下新建tsconfig.json
       // tsconfigPath: '../../tsconfig.json',
       // skipDiagnostics: false,

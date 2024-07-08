@@ -29,10 +29,12 @@ yarn.lock
 *.rar
 *.lock
 /workspace.code-workspace
-lanvenUi
+lanven-ui
 #dev
 # *.env.development
 yarn.lock
 Zjsyb-vueNew.iml
 cache
 config.mts.timestamp-*.mjs
+
+lanvenUi

@@ -1,6 +1,6 @@
 export function useDesign(scope: string) {
   return {
-    prefixCls: `lanvenUi-${scope}`,
-    prefixVar: `lanvenUi`,
+    prefixCls: `lanven-ui-${scope}`,
+    prefixVar: `lanven-ui`,
   };
 }
