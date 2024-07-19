@@ -26,7 +26,8 @@
       "ant-design-vue/lib/form/interface": ["node_modules/ant-design-vue/lib/form/interface"],
       "ant-design-vue/es/button/buttonTypes": ["node_modules/ant-design-vue/es/button/buttonTypes"],
       "typescript/es/lib.dom": ["node_modules/typescript/es/lib.dom"],
-      "@purge-icons/generated": ["node_modules/@purge-icons/generated"]
+      "@purge-icons/generated": ["node_modules/@purge-icons/generated"],
+      "ant-design-vue/es/form": ["node_modules/ant-design-vue/es/form"]
       // "vue-types": ["node_modules/vue-types/dist"]
     }
   },

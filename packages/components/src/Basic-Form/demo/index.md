@@ -255,7 +255,7 @@ const handleSubmitTimeUseForm=(values:any)=>{
 | renderColContent | `(renderCallbackParams: RenderCallbackParams) => VNode\| VNode[]\| string` | - | - | 自定义渲染组件（需要自行包含 formItem） |
 | renderComponentContent | `(renderCallbackParams: RenderCallbackParams) => any\| string` | - | - | 自定义渲染组内部的 slot |
 | slot | `string` | - | - | 自定义 slot，渲染组件 |
-| colSlot | `string` | - | - | 自定义 slot，渲染组件 （需要自行包含 formItem） |
+| colSlot | `string` | - | - | 自定义 slot，渲染组件 （需要自行包含从 lanven-ui 引入的 LvFormItem |
 | show | `boolean\|((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示，css 控制，不会删除 dom |
 | ifShow | `boolean\|((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示，js 控制，会删除 dom |
 | dynamicDisabled | `boolean\|((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否禁用 |
@@ -327,39 +327,40 @@ export interface HelpComponentProps {
 
 自定义渲染内容
 
-<BasicForm @register="slotRegister" @submit="handlSlotSubmit"> <template #customSlot="{ model, field }"> <div>我是自定义组件<input style='border:1px solid;'  v-model='model[field]'/> </div> </template> </BasicForm>
+<BasicForm @register="slotRegister" @submit="handlSlotSubmit"> <template #customSlot="{ model, field }"> <LvFormItem :name='field'> <input style='border:1px solid;'  v-model='model[field]'/> </LvFormItem> </template> </BasicForm>
 
-```ts
+```vue
 <template>
- <BasicForm @register="slotRegister" @submit="handlSlotSubmit">
+  <BasicForm @register="slotRegister" @submit="handlSlotSubmit">
     <template #customSlot="{ model, field }">
-       <div>我是自定义组件<input style='border:1px solid;' v-model='model[field]'/> </div>
+      <LvFormItem :name="field">
+        <input style="border:1px solid;" v-model="model[field]" />
+      </LvFormItem>
     </template>
   </BasicForm>
 </template>
 
 <script lang="ts" setup>
-import { BasicForm, useForm  } from 'lanven-ui';
+  import { BasicForm, useForm, LvFormItem } from 'lanven-ui';
 
-const [slotRegister, { validate }] = useForm({
-  labelWidth: 0,
-  schemas: [
-    {
-      field: 'field1',
-      component: 'Input',
-      defaultValue: '123',
-      label: '字段1',
-      slot: 'customSlot',
-    },
-  ],
-});
+  const [slotRegister, { validate }] = useForm({
+    labelWidth: 0,
+    schemas: [
+      {
+        field: 'field1',
+        component: 'Input',
+        defaultValue: '123',
+        label: '字段1',
+        colSlot: 'customSlot',
+      },
+    ],
+  });
 
-async function handlSlotSubmit(){
-  const data = await validate()
-  alert('自定义组件'+data.field1)
-}
+  async function handlSlotSubmit() {
+    const data = await validate();
+    alert('自定义组件' + data.field1);
+  }
 </script>
-
 ```
 
 #### render 函数式
@@ -506,7 +507,8 @@ Slots
 | advanceAfter  | 展开按钮后   |
 
 <script lang="ts" setup>
-import { BasicForm, FormSchema,useForm  } from 'lanven-ui';
+import { BasicForm, FormSchema,useForm ,LvFormItem } from 'lanven-ui';
+
 const schemas: FormSchema[] = [
   {
     field: 'field',
@@ -532,9 +534,9 @@ const [slotRegister,{validate}] = useForm({
     {
           field: 'field1',
           component: 'Input',
-          defaultValue: '123',
+          defaultValue: '123sss',
           label: '字段1',
-          slot: 'customSlot',
+          colSlot: 'customSlot',
     },
   ],
 });
